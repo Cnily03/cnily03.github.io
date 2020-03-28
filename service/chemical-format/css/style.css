@@ -1,0 +1,47 @@
+.all {
+	font-size: 19px;
+	color: #fff
+}
+
+button {
+	white-space: nowrap;
+}
+/*-----------------------------------------*/
+input {
+	font-size: 100%;
+	background: #229ffd;
+	color: #fff;
+	border: 2px solid white;
+	text-indent: 6px;
+}
+
+textarea {
+	font-size: 100%;
+	background: #229ffd;
+	color: #fff;
+	border: 2px solid white;
+	padding: 6px 6px;
+	resize: none;
+	font-family: Microsoft YaHei;
+}
+
+
+::-webkit-input-placeholder,
+textarea::-webkit-textarea-placeholder {
+	color: #ccc;
+}
+
+:-moz-placeholder,
+textarea:-moz-placeholder {
+	color: #ccc;
+}
+
+::-moz-placeholder,
+textarea::-moz-placeholder {
+	color: #ccc;
+}
+
+::-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	color: #ccc;
+}

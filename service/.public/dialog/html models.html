@@ -1,0 +1,49 @@
+<!--设置弹窗 - 弹窗样式-->
+<!-- 点×关闭 -->
+<dialog class="middle" id="-------ID-------">
+	<table cellspacing="0" width="100%" align="bottom" border="0" style="table-layout: fixed; padding-left: 5px">
+		<tr>
+			<td align="left" width="100%" style="font-size: 20px;">
+				<b>
+					TITLE
+				</b>
+			</td>
+			<!--Close Logo-->
+			<td align="right" height="15px" width="30px" nowrap style="overflow: hidden; text-align: 'center'; vertical-align: 'middle'; word-wrap: break-word; word-break: break-all;">
+				<button class="button button-large button-plain button-borderless" style="height: 20px; padding: 0 0 0 0 !important;" onclick="new dialog('-------ID-------').close();">
+					<div class="close-logo">+</div>
+				</button>
+			</td>
+		</tr>
+	</table>
+	<table cellspacing="0" width="100%" border="0" style="padding: 5px 5px 5px 5px;">
+		THE CONTENTS HERE.
+	</table>
+</dialog>
+
+<!-- 要求确认的对话框 -->
+<dialog class="middle" id="-------ID-------">
+	<table cellspacing="0" width="100%" align="bottom" border="0" style="table-layout: fixed; padding-left: 5px; padding-right: 5px;">
+		<tr>
+			<td align="center" width="100%" style="font-size: 20px;">
+				<b>
+					TITLE
+				</b>
+			</td>
+		</tr>
+	</table>
+	<table><tr style="height: 10px;"></tr></table>
+	<table cellspacing="0" width="100%" border="0" style="padding: 5px 5px 5px 5px;">
+		CONTENTS
+	</table>
+	<table><tr style="height: 10px;"></tr></table>
+	<table cellspacing="0" width="100%" align="bottom" border="0" style="padding-left: 5px; padding-right: 5px; font-size: 15px;">
+		BUTTONS
+	</table>
+</dialog>
+
+
+<!--显示弹窗-->
+<script type="text/javascript">
+new dialog('dialog-control').show();
+</script>
