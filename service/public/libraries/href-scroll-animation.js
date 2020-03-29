@@ -3,8 +3,8 @@ function putJQ() {
 	try {
 		$().css;
 	} catch (err) {
-		addJS("/service/_public/jquery-3.4.1.min.js");
-		document.getElementsByTagName('head')[0].appendChild('<script type="text/javascript" src="/service/_public/jquery-3.4.1.min.js"></script>');
+		addJS("/service/public/jquery-3.4.1.min.js");
+		document.getElementsByTagName('head')[0].appendChild('<script type="text/javascript" src="/service/public/jquery-3.4.1.min.js"></script>');
 	}
 }
 putJQ();

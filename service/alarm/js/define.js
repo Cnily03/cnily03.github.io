@@ -93,7 +93,7 @@ function help(string="") {
 	if(typeof string == 'string') {
 		//如果没有输入或者输入的是""
 		if(!string) {
-			//addJS("settings/help/_USAGE.js");
+			//addJS("settings/help/USAGE.js");
 			helpUsage();
 		}
 		//property
