@@ -6,13 +6,13 @@ function addJS(jsURL) {
 }
 
 //--------------------------------------------------------------------
-/*addJS("/service/.public/libraries/sleep.js");
+/*addJS("/service/_public/libraries/sleep.js");
 
 function putJQ() {
 	try {
 		$().css;
 	} catch (err) {
-		addJS("/service/.public/jquery-3.4.1.min.js");
+		addJS("/service/_public/jquery-3.4.1.min.js");
 	}
 }*/
 
