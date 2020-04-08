@@ -26,7 +26,7 @@ function _go(display) {
 		return;
 	}
 	var original_date = new Date();
-	var date = new Date(original_date.getTime() - 1000 * (display-0.48));
+	var date = new Date(original_date.getTime() - 1000 * (display-0.58));
 	var y = date.getYear() + 1900;
 	var mon = date.getMonth() + 1;
 	var d = date.getDate();
