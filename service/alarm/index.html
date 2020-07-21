@@ -1,0 +1,118 @@
+<!--Copyright George Vincent - Music Timed Playback System -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#de2810">
+	<link rel="icon" href="logo.ico" type="images/x-ico">
+	<title> 铃声定时系统 </title>
+	<audio controls="controls" preload id="audio-custom" hidden></audio>
+	<script src="../public/libraries/addJS.js"></script>
+	<style>
+		@import url('settings/special.css');
+		@font-face {
+			font-family: 'LCD'; 
+			src: url(fonts/LCD.ttf);
+		}
+		@font-face {
+			font-family: 'HWKai'; 
+			src: url(fonts/HWKai.ttf);	
+		}
+		time {
+			font-size: 200px;
+			font-family: LCD;
+		}
+		msg {
+			font-size: 90px;
+			font-family: HWKai;
+			white-space: pre-wrap;
+			word-break: break-all;
+		}
+		.lv-parent {position: relative;}
+		.lv-all {
+			position:absolute;
+			width:100%; height:100%;
+			left: 50%; top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.lv-tip {
+			position: absolute;
+			width:100%; height:100%;
+			left: 50%; top: 0;
+			transform: translate(-50%);
+		}
+		.lv {
+			position: absolute;
+			width:100%;
+			left: 50%; top: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+	<script src="settings/outputMsg.js"></script>		<!--定义显示文本函数-->
+	<script src="settings/help/USAGE.js"></script>		<!--特殊需要-->
+	<script src="js/define.js"></script>				<!--定义函数-->
+	<script src="settings/preDescription.js"></script>	<!--预说明-->
+	<script src="js/getTime.js"></script>				<!--获取时间-->
+	<script src="settings/schedule.js"></script>		<!--引用作息时间表-->
+	<!--网页加载完毕后执行 - 包括special.js 和判断（根据时间表检测当前时间并控制播放）-->
+	<script src="js/endLoad.js"></script>
+</head>
+<body class=bg>
+	<div class=lv-parent>
+		<table cellspacing="0" width=100% height=100%>
+			<tr>
+				<td nowrap style="text-align: center;">
+					<!--Time Base-->
+					<div class=lv style="z-index:1;">
+						<table id="timepad" cellspacing="0" width="100%" style="text-align: center;">
+							<tr>
+								<td>
+									<font color="#EEEEE"><time class="bottom-time">88:88:88</time></font>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!--Time-->
+					<div class=lv style="z-index:2;">
+						<table id="timepad" cellspacing="0" width="100%" style="text-align: center;">
+							<tr>
+								<td>
+									<time class="surface-time" id="outputTime"></time>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!--Tips & Alpha Surface-->
+					<div class=lv-tip style="z-index:3;">
+							<table align="center" cellspacing="0" height="100%">
+								<tr>
+									<td align="center">
+										<table align="center" style="padding: 0 10px;" border="0">
+											<tr>
+												<td align="left">
+													<msg id="message-top"></msg>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr><td height="100%"></td></tr>
+								<tr>
+									<td align="center">
+										<table align="center" style="padding: 0 10px;" border="0">
+											<tr>
+												<td align="left">
+													<msg id="message-down"></msg>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+</body>
+</html>
