@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC记分板运算转换</title>
+    <style>
+        textarea {
+            height: 600px;
+            width: 500px;
+            float: left;
+        }
+
+        button#button {
+            height: 600px;
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var c = new Array("+=", "-=", "*=", "/=", "%=", "=");
+
+
+            function isContainUnexpectedChar(str) {
+                var uepchar = new Array("+", "-", "*", "/", "%", "&", "|", "=");
+                uepchar.forEach(ele => {
+                    if (str.indexOf(ele))
+                        return !0
+                });
+                return !!0
+            }
+
+            function convert(str, carriar) {
+                var apart = new Array("");
+                let index = 0
+                while (apart.length < 2) {
+                    if (index > 5)
+                        return "Operation symbol error! Can't find legal operation symbol!";
+                    apart = str.split(c[index]);
+                    index++;
+                }
+                if (isContainUnexpectedChar(apart[0]) || isContainUnexpectedChar(apart[1]))
+                    return "Variable naming error!";
+                index--;
+                apart[0]=apart[0].trim();
+                apart[1]=apart[1].trim();
+                return "scoreboard players operation" + " " + carriar + " " + apart[0] + " " + c[index] + " " +
+                    carriar + " " + apart[1];
+            }
+            document.getElementById("button").onclick = function () {
+                var carriar = document.getElementById("carriar").value = document.getElementById("carriar")
+                    .value.trim();
+                if (carriar == "") alert("你必须输入储存这些记分项目的载体（实体）！" + carriar);
+                else {
+                    document.getElementById("output").value = "";
+                    var input = document.getElementById("input").value;
+                    var output = "",
+                        stc = input.split("\n");
+                    for (let i = 0; i < stc.length; i++) {
+                        document.getElementById("output").value += (i == 0 ? "" : "\n") + convert(stc[i], carriar);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+        <center><h1>Minecraft记分板运算转换工具</h1></center>
+        <center><h2>By Gohi_win</h2></center>
+        请输入储存这些记分项目的载体（实体）：<input type="input" id="carriar" placeholder='@e[tag=carriar]'></input><br>
+        <textarea id="input" placeholder="输入例如：&#10;a+=b&#10;b-=c&#10;a/=b"></textarea>
+        <button id="button">转<br><br><br>换</button>
+        <textarea id="output" placeholder="输出例如：&#10;scoreboard players operation @e[tag=carriar] a += @e[tag=carriar] b&#10;scoreboard players operation @e[tag=carriar] b -= @e[tag=carriar] c&#10;scoreboard players operation @e[tag=carriar] a /= @e[tag=carriar] b"></textarea>
+</body>
+
+</html>
