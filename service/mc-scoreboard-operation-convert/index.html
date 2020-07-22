@@ -2,7 +2,7 @@
 <html lang="zh">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MC记分板运算转换</title>
     <style>
@@ -21,19 +21,20 @@
         window.onload = function () {
             var c = new Array("+=", "-=", "*=", "/=", "%=", "=");
 
-
             function isContainUnexpectedChar(str) {
-                var uepchar = new Array("+", "-", "*", "/", "%", "&", "|", "=");
+                var uepchar = new Array("+", "-", "*", "/", "\\", "%", "&", "|", "=");
                 uepchar.forEach(ele => {
                     if (str.indexOf(ele))
-                        return !0
+                        return !0;
                 });
-                return !!0
+                return !!0;
             }
 
             function convert(str, carriar) {
+                if(str.substr(0, 1)=="#")
+                    return str;
                 var apart = new Array("");
-                let index = 0
+                let index = 0;
                 while (apart.length < 2) {
                     if (index > 5)
                         return "Operation symbol error! Can't find legal operation symbol!";
@@ -58,7 +59,7 @@
                     var output = "",
                         stc = input.split("\n");
                     for (let i = 0; i < stc.length; i++) {
-                        document.getElementById("output").value += (i == 0 ? "" : "\n") + convert(stc[i], carriar);
+                        document.getElementById("output").value += (i == 0 ? "" : "\n") + convert(stc[i].trim(), carriar);
                     }
                 }
             }
