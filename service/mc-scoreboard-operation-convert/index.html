@@ -22,7 +22,7 @@
             var c = new Array("+=", "-=", "*=", "/=", "%=", "=");
 
             function isContainUnexpectedChar(str) {
-                var uepchar = new Array("+", "-", "*", "/", "\\", "%", "&", "|", "=");
+                var uepchar = new Array("+", "*", "/", "\\", "%", "&", "|", "=");
                 uepchar.forEach(ele => {
                     if (str.indexOf(ele))
                         return !0;
