@@ -72,12 +72,12 @@
                 let index = 0;
                 while (apart.length < 2) {
                     if (index > 5)
-                        return "Operation symbol error! Can't find legal operation symbol!";
+                        return "[Warning] Operation symbol error! Can't find legal operation symbol!";
                     apart = str.split(c[index]);
                     index++;
                 }
                 if (isContainUnexpectedChar(apart[0]) || isContainUnexpectedChar(apart[1]))
-                    return "Variable naming error!";
+                    return "[Warning] Variable naming error!";
                 index--;
                 apart[0] = apart[0].trim();
                 apart[1] = apart[1].trim();
@@ -115,10 +115,10 @@
                     <h2>By Gohi_win</h2>
                 </center>
                 请输入储存这些记分项目的载体（实体）：<input type="input" id="score_holder" placeholder='@e[tag=score_holder]'></input><br>
-                <textarea id="input" placeholder="输入例如：&#10;a+=b&#10;b-=c&#10;a/=b"></textarea>
+                <textarea id="input" placeholder="#输入例如：&#10;a+=b&#10;b-=c&#10;a/=b"></textarea>
                 <button id="button">转换</button>
                 <textarea id="output"
-                    placeholder="输出例如：&#10;scoreboard players operation @e[tag=score_holder] a += @e[tag=score_holder] b&#10;scoreboard players operation @e[tag=score_holder] b -= @e[tag=score_holder] c&#10;scoreboard players operation @e[tag=score_holder] a /= @e[tag=score_holder] b"></textarea>
+                    placeholder="#输出例如：&#10;scoreboard players operation @e[tag=score_holder] a += @e[tag=score_holder] b&#10;scoreboard players operation @e[tag=score_holder] b -= @e[tag=score_holder] c&#10;scoreboard players operation @e[tag=score_holder] a /= @e[tag=score_holder] b"></textarea>
             </td>
         </tr>
     </table>
