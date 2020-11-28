@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="doc-spawn/rely/docxtemplater.js"></script>
+    <!--https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.19.7/docxtemplater.js-->
+    <script src="doc-spawn/rely/pizzip.js"></script>
+    <!--https://unpkg.com/pizzip@3.0.6/dist/pizzip.js-->
+    <script src="doc-spawn/rely/FileSaver.js"></script>
+    <!--https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js-->
+    <script src="doc-spawn/rely/pizzip-utils.js"></script>
+    <!--https://unpkg.com/pizzip@3.0.6/dist/pizzip-utils.js-->
+    <!--
+    Mandatory in IE 6, 7, 8 and 9.
+    -->
+    <!--[if IE]>
+        <script type="text/javascript" src="doc-spawn/rely/pizzip-utils-ie.js"></script>
+    <![endif]-->
+    <script src="doc-spawn/main.js"></script>
+</head>
+
+<body>
+    <script>
+        data = {
+            "ques": [{
+                ques_num: '1',
+                ques_title: '下列选项中没有语病的一项是',
+                option_A: '画家能否凭借自己的生活积累和艺术感受，让传统文化内涵及现代人文精神在画面上得到充分体现，是新时代美术创作并行不悖的艺术法则。（2019·全国Ⅱ卷）',
+                option_B: '全球2000多位科学家经过跨国的联合攻关和数年的不懈努力，人类史上首张清晰的超级黑洞照片终于在今年面世，引起广泛关注。',
+                option_C: "古琴音量小，很多人认为这是它的一个缺点，但我认为这恰恰是它的一个特点。正是音量小，使得古琴成为直接和你的心进行交流的乐器，是最个人化的乐器。（2019·全国Ⅰ卷）",
+                option_D: "近年来，《战狼Ⅱ》《流浪地球》等一批精良艺术品质和积极价值取向的文艺作品，受到观众广泛认可，这充分证明过硬品质是新时代文艺实现文化引领的基本条件。（2019·浙江卷）"
+            }, {
+                ques_num: '2',
+                ques_title: '下列选项中没有语病的是',
+                option_A: '当然，戏曲的创新必须传承为基础，是传承中的创新，而不是眼花缭乱甚至任性妄为的创新，这样才能探索出一条能够被大多数观众接受的创新之路来。（2018·全国Ⅱ卷）',
+                option_B: '当人体免疫力大幅受损的情况下，“超级真菌”会乘虚而入，使病情雪上加霜，加速病人死亡，因此它被贴上了“高致死率”的标签，使人闻之色变。（2019·浙江卷）',
+                option_C: "全球2000多位科学家经过跨国的联合攻关和数年的不懈努力，人类史上首张清晰的超级黑洞照片终于在今年面世，引起广泛关注。",
+                option_D: "古琴音量小，很多人认为这是它的一个缺点，但我认为这恰恰是它的一个特点。正是音量小，使得古琴成为直接和你的心进行交流的乐器，是最个人化的乐器。（2019·全国Ⅰ卷）"
+            }]
+        }
+    </script>
+    <button id="generate">Go</button>
+    <script>
+        document.getElementById("generate").onclick=docGenerate('doc-spawn/docmodel/病句.docx','输出.docx',data);
+    </script>
+</body>
+</html>
