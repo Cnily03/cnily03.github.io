@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC记分板运算转换工具</title>
+    <style>
+        @media screen and (min-device-width:1066px) {
+            textarea {
+                height: 600px;
+                width: 500px;
+                float: left;
+            }
+
+            button#button {
+                width: 30px;
+                height: 600px;
+                float: left;
+                word-wrap: normal;
+                line-height: 50px;
+            }
+        }
+
+        @media screen and (min-device-width:801px) and (max-device-width:1065px) {
+            textarea {
+                height: 570px;
+                width:360px;
+                float: left;
+            }
+
+            button#button {
+                width: 30px;
+                height: 570px;
+                float: left;
+                word-wrap: normal;
+                line-height: 50px;
+            }
+        }
+
+        @media screen and (max-device-width:800px) {
+            textarea {
+                height: 470px;
+                width: 100%;
+                float: left;
+            }
+
+            button#button {
+                width: 100%;
+                float: left;
+                word-wrap: normal;
+            }
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var c = new Array("+=", "-=", "*=", "/=", "%=", "=");
+
+            function isContainUnexpectedChar(str) {
+                var uepchar = new Array("+", "*", "/", "\\", "%", "&", "|", "=");
+                uepchar.forEach(ele => {
+                    if (str.indexOf(ele))
+                        return !0;
+                });
+                return !!0;
+            }
+
+            function convert(str, score_holder) {
+                if (str.trim().substr(0, 1) == "#" || !(str.trim()))
+                    return str;
+                var apart = new Array("");
+                let index = 0;
+                while (apart.length < 2) {
+                    if (index > 5)
+                        return "[Warning] Operation symbol error! Can't find legal operation symbol!";
+                    apart = str.split(c[index]);
+                    index++;
+                }
+                if (isContainUnexpectedChar(apart[0]) || isContainUnexpectedChar(apart[1]))
+                    return "[Warning] Variable naming error!";
+                index--;
+                apart[0] = apart[0].trim();
+                apart[1] = apart[1].trim();
+                return "scoreboard players operation" + " " + score_holder + " " + apart[0] + " " + c[index] + " " +
+                    score_holder + " " + apart[1];
+            }
+            document.getElementById("button").onclick = function () {
+                var score_holder = document.getElementById("score_holder").value = document.getElementById(
+                        "score_holder")
+                    .value.trim();
+                if (score_holder == "") alert("你必须输入储存这些记分项目的载体（实体）！" + score_holder);
+                else {
+                    document.getElementById("output").value = "";
+                    var input = document.getElementById("input").value;
+                    var output = "",
+                        stc = input.split("\n");
+                    for (let i = 0; i < stc.length; i++) {
+                        document.getElementById("output").value += (i == 0 ? "" : "\n") + convert(stc[i],
+                            score_holder);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table style="width: inherit" align="center">
+        <tr>
+            <td>
+                <center>
+                    <h1>Minecraft记分板运算转换工具</h1>
+                </center>
+                <center>
+                    <h2>By Gohi_win</h2>
+                </center>
+                请输入储存这些记分项目的载体（实体）：<input type="input" id="score_holder" placeholder='@e[tag=score_holder]'></input><br>
+                <textarea id="input" placeholder="#输入例如：&#10;a+=b&#10;b-=c&#10;a/=b"></textarea>
+                <button id="button">转换</button>
+                <textarea id="output"
+                    placeholder="#输出例如：&#10;scoreboard players operation @e[tag=score_holder] a += @e[tag=score_holder] b&#10;scoreboard players operation @e[tag=score_holder] b -= @e[tag=score_holder] c&#10;scoreboard players operation @e[tag=score_holder] a /= @e[tag=score_holder] b"></textarea>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

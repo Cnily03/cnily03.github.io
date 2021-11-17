@@ -1,0 +1,230 @@
+<!--Copyright George Vincent - Music Timed Playback System -->
+<!DOCTYPE html>
+<html lang="zh_cn">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#229ffd">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="icon" href="logo.ico" type="images/x-ico" />
+	<title>化学式格式化</title>
+	<script src="/lib/third_parties/javascripts/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+		var focusTmp = true;
+		function focusTips() {
+			if(focusTmp)
+				document.getElementById('tips').focus(), focusTmp = false;
+		}
+	</script>
+	<!------------------------ JUMP DEVICE -------------------------
+	<script src="../public/libraries/goDevice.js"></script>
+	<script type="text/javascript">
+	deviceJump("Wap->PC", HOST + "../chemical-formula-convert/main-pc.html");
+	</script>
+	!-------------------------------------------------------------->
+	<style type="text/css">
+	@import url(/lib/third_parties/stylesheets/buttons.css);
+	@import url(css/style.css);
+	@import url(../public/dialog/dialog.css);
+	</style>
+	<script src="../public/dialog/dialog.js"></script>
+	<script src="../public/libraries/alert-no-link-title.js"></script>
+	<script src="functions/convert.js"></script>
+	<script src="functions/copy.js"></script>
+	<script src="functions/sizeEdit.js"></script>
+	<script src="preload.js"></script>
+</head>
+
+<body class="all" bgcolor="#229ffd">
+	<div id="top" width="100%" height=0></div>
+	<!-- Dialog -->
+	<dialog class="dialog-middle" id="chemical-input-description">
+		<table cellspacing="0" width="100%" align="bottom" border="0" style="table-layout: fixed; padding-left: 5px; padding-right: 5px;">
+			<tr>
+				<td align="center" width="100%" style="font-size: 20px;">
+					<b>
+						输入化学式说明
+					</b>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr style="height: 10px;"></tr>
+		</table>
+		<table cellspacing="0" width="100%" border="0" style="padding: 5px 5px 5px 5px;">
+			<tr>
+				<td align="center">输入</td>
+				<td align="left">单键</td>
+				<td align="center">请用</td>
+				<td align="center">-1-</td>
+				<td align="center">表示</td>
+			</tr>
+			<tr>
+				<td align="center">输入</td>
+				<td align="left">双键</td>
+				<td align="center">请用</td>
+				<td align="center">-2-</td>
+				<td align="center">表示</td>
+			</tr>
+			<tr>
+				<td align="center">输入</td>
+				<td align="left">叁键</td>
+				<td align="center">请用</td>
+				<td align="center">-3-</td>
+				<td align="center">表示</td>
+			</tr>
+			<tr>
+				<td align="center">输入</td>
+				<td align="left">氢键</td>
+				<td align="center">请用</td>
+				<td align="center">***</td>
+				<td align="center">表示</td>
+			</tr>
+			<tr>
+				<td align="center">输入</td>
+				<td align="left">高能磷酸键</td>
+				<td align="center">请用</td>
+				<td align="center">~</td>
+				<td align="center">表示</td>
+			</tr>
+		</table>
+		<table>
+			<tr style="height: 10px;"></tr>
+		</table>
+		<table cellspacing="0" width="100%" align="bottom" border="0" style="padding-left: 5px; padding-right: 5px; font-size: 15px;">
+			<tr>
+				<td align="left">
+					<button class="button button-primary button-rounded button-small" onclick="new dialog('chemical-input-description').close();" ><font style="text-shadow: 0 0 5px #fff">我已知晓</font></button>
+				</td>
+				<td width="10px"></td>
+				<td align="right">
+					<button class="button button-primary button-rounded button-small"><font style="text-shadow: 0 0 5px #fff">取消</font></button>
+				</td>
+			</tr>
+		</table>
+	</dialog>
+	<!-- Dialog End -->
+	<font style="text-shadow: 0px 0px 3px #000;">
+		<table width="100%" border="0" align="bottom" style="table-layout: auto;">
+			<tr style="height: 10px"></tr>
+			<tr>
+				<td colspan="2" nowrap>
+					<div style="line-height: 2px; text-align: center;">
+						<h1>化学式格式化</h1><br />
+						<h3>Made by George Vincent</h3>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table><tr style="height: 10px"></tr></table>
+		<table width="100%" border="0" align="bottom">
+			<tr>
+				<td valign="bottom">
+					<font>预格式化的化学式：</font>
+				</td>
+				<td valign="bottom" align="right">
+					<button class="button button-rounded button-plain button-small-caps button-border" onclick="new dialog('chemical-input-description').show()" id="tips" style="padding: 0 10px;">说明</button>
+					<button class="button button-rounded button-plain button-small-caps button-border" onclick="document.getElementById('unconvert_chemical').value = ''" style="padding: 0 10px;">清空</button>
+				</td>
+			</tr>
+		<table>
+			<tr width="100%">
+				<td width="100%">
+					<input type="text" style="height: 34px;" maxlength="57" id="unconvert_chemical" placeholder="例：C55H70MgN4O" onclick="focusTips()" />
+				</td>
+			</tr>
+		</table>
+		<table><tr style="height: 30px"></tr></table>
+		<table width="100%" border="0" align="bottom">
+			<tr>
+				<td valign="bottom">
+					<font>化学式的学名：</font>
+				</td>
+				<td valign="bottom" align="right">
+					<button class="button button-rounded button-plain button-small-caps button-border" onclick="document.getElementById('unconvert_name').value = ''" style="padding: 0 10px;">清空</button>
+				</td>
+			</tr>
+		</table>
+		<table width="100%" border="0" align="bottom">
+			<tr width="100%">
+				<td colspan="2" width="100%">
+					<input type="text" style="height: 34px;" maxlength="57" id="unconvert_name" placeholder="例：叶绿素" />
+				</td>
+			</tr>
+			<tr width="100%">
+				<td>
+					<button id="buttonWidth_1" class="button button-rounded button-plain button-small-caps button-border" onclick="convertChemical()" style="padding: 0 0 !important"><span style="text-shadow: 0px 0px 3px #229ffd;">仅格式化化学式</span></button>
+				</td>
+				<td>
+					<button id="buttonWidth_2" class="button button-rounded button-plain button-small-caps button-border" onclick="convertAll()" style="padding: 0 0 !important"><span style="text-shadow: 0px 0px 3px #229ffd;">格式化所有</span></button>
+				</td>
+			</tr>
+		</table>
+		<table><tr style="height: 30px"></tr></table>
+		</table>
+		<table width="100%" border="0" align="bottom">
+			<tr>
+				<td valign="bottom" width="60px">
+					<font>输出：</font>
+				</td>
+				<td valign="bottom" align="left">
+					<label><input type="checkbox" id="keepHistory"; /><font>保留输出记录</font></label>
+				</td>
+				<td valign="bottom" align="right">
+					<button class="button button-rounded button-plain button-small-caps button-border" onclick="copyText()" style="padding: 0 10px;">复制</button>
+					<button class="button button-rounded button-plain button-small-caps button-border" onclick="document.getElementById('output').value = ''" style="padding: 0 10px;">清空</button>
+				</td>
+			</tr>
+		</table>
+		<table width="100%" border="0" align="bottom">
+			<tr width="100%">
+				<td colspan="2" width="100%">
+					<textarea rows="6" id="output" placeholder="这只是普通到不能再普通的输出窗口罢了" readonly></textarea>
+				</td>
+			</tr>
+			<tr style="height: 30px"></tr>
+			<tr>
+				<td colspan="2">
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><font color="#ccc">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</font></a>进行许可。
+				</td>
+			</tr>
+			<!--<tr style="height: 30px"></tr>
+			<tr>
+				<td colspan="2" width="100%">
+					<div id="cover" style="position: absolute; z-index: 10;"></div>
+					<p style="text-align:center;"><img src="https://cnily.files.wordpress.com/2019/08/territorystar-blurry-china.png" style="width: 100%" /><br />
+						<font color="#F40002" size="5px" style="text-shadow:0 0 2px #FAF408;">
+							<b>
+								中华人民共和国<br />
+								The People's Republic of China
+							</b>
+						</font>
+						<br />
+						<font color="#fff" size="3px">
+							<b>
+								HK TW MACAO ... ALL THESE BELONG TO CHINA
+							</b>
+						</font>
+					</p>
+				</td>
+			</tr>
+			<tr style="height: 20px"></tr>
+			<tr>
+				<td colspan="2" style="text-align: center;">
+					<font color="#fff" size="4px">
+						<b>
+							I, TOO, SUPPORT HK POLICE! <br />
+							YOU CAN BEAT ME NOW! <br />
+							A SIR! GOOD JOB! I SUPPORT YOU! <br />
+						</b>
+					</font>
+					<font color="blue" style="text-shadow:0 0 0px;">
+						<a href="#top">@Hong Kong</a> <a href="#top">@America</a>
+					</font>
+				</td>
+			</tr>-->
+		</table>
+	</font>
+</body>
+<script src="../public/libraries/href-scroll-animation.js"></script>
+</html>

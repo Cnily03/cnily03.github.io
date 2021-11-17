@@ -1,0 +1,11 @@
+.jsholder {
+    width: 100%;
+    table-layout: fixed;
+}
+
+textarea {
+    word-wrap: break-word;
+    resize: none;
+    width: 100%;
+    height: 10rem;
+}

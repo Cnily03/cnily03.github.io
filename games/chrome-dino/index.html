@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chrome Dino</title>
+  <link rel="stylesheet" href="index.css">
+  <script type="text/javascript" src="sounds/base64.js"></script>
+  <script type="text/javascript" src="offline.js"></script>
+</head>
+
+<body>
+  <div id="chrome-dino"></div>
+  <div id="offline-resources">
+    <img id="offline-resources-1x" src="images/100-offline-sprite.png" alt="sprite">
+    <template id="audio-resources">
+      <audio id="offline-sound-press" src="data:const;BUTTON_PRESS_BASE64"></audio>
+      <audio id="offline-sound-hit" src="data:const;HIT_BASE64"></audio>
+      <audio id="offline-sound-reached" src="data:const;SCORE_BASE64"></audio>
+    </template>
+  </div>
+  <script type="text/javascript">
+    window.onload = function () {
+      createRunner('#chrome-dino');
+    };
+  </script>
+</body>
+
+</html>

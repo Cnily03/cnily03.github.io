@@ -1,0 +1,44 @@
+/**
+ * Copyight George Vincent - special.css
+ * This is the special style for the time displaying of this project.
+ * If you don't want to use the special style, please add /* below this description or in the content.
+ *
+ * Color of China Flag:
+ * Red:		R(244)	G(0)	B(2)	#F40002
+ * Yellow:	R(250)	G(244)	B(8)	#FAF408
+ */
+
+.bg {
+	background: url(https://cnily.files.wordpress.com/2019/08/flag-of-china.jpg) no-repeat;
+	background-size: 800px;
+	background-color: #de2810;
+	/*background-size: 63%;*/
+}
+
+msg {
+	color: white;
+}
+
+#message-down {
+	font-size: 37.37px;
+}
+
+.bottom-time {
+	font-size: 200px;
+	color: #de2810;
+	text-shadow: 0 0 10px #de2810;
+
+}
+
+.surface-time {
+	font-size: 200px;
+	color: #FAF408;
+	text-shadow: 0 0 10px #FAF408;
+}
+
+#timepad {
+/*
+	padding-right: 0;
+*/
+}
+/**/

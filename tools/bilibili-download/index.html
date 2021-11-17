@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiliBili Download Tool</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+
+<body>
+    <form action="" id='reqFrom'>
+        画质：<select id="quality" name="quality">
+            <option value="4K">4K</option>
+            <option value="1080p60">1080P 60帧</option>
+            <option value="1080p+">1080P+</option>
+            <option value="1080p">1080P</option>
+            <option value="720p60">720P 60帧</option>
+            <option value="720p">720P</option>
+            <option value="480p">480P</option>
+            <option value="360p">360P</option>
+        </select>
+        <label><input type="radio" id='jstype' name="jstype" value='full'>完整</label>
+        <label><input type="radio" id='jstype' name="jstype" value='min'>精简</label><br>
+        <input type="text" id="query" name='query' placeholder="请输入链接或av/BV号（甚至可以不输入）">
+        <input type="submit" value="获取js代码">
+    </form>
+    <table class="jsholder">
+        <tr id='output-full'>
+            <td class="box">
+                自动检测多P
+                <textarea id='auto' readonly></textarea>
+            </td>
+            <td class="box">
+                只下载当前页面文件
+                <textarea id='cur' readonly></textarea>
+            </td>
+        </tr>
+        <tr id='output-min'>
+            <td class="box">
+                自动检测多P（输入指令后等待2秒）
+                <textarea id='auto' readonly></textarea>
+            </td>
+            <td class="box">
+                只下载当前页面文件（输入指令后等待2秒）
+                <textarea id='cur' readonly></textarea>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

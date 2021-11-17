@@ -1,0 +1,43 @@
+.dialog-middle {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	width: 280px;
+	/*height: 100px;*/
+	/*text-align: center;
+	/*上 右 下 左*/
+	padding: 3px 3px 3px 3px;
+	/*圆角*/
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 0 15px white;
+}
+
+/*关闭按钮设置*/
+/*buttons.css中的按钮样式 class="button button-large button-plain button-borderless" */
+.close-logo {
+	/*ROTATION*/
+	transform: rotate(45deg);
+	/* Internet Explorer 9*/
+	-ms-transform: rotate(45deg);
+	/* Firefox */
+	-moz-transform: rotate(45deg);
+	/* Safari 和 Chrome */
+	-webkit-transform: rotate(45deg);
+	/* Opera */
+	-o-transform: rotate(45deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 1);
+	
+	/*FONT*/
+	font-size: 30px;
+	color: gray;
+	line-height: 5px;
+	text-align: center;
+	padding: 0 0 0 0;
+}
+
+/*
+dialog::backrop {
+	background: rgba(black, .5);
+}
+*/

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+	<meta name="keywords" content="问卷星, 刷, 自动, 脚本, technical writing tool, documentation tool"/>
+	<title>问卷星刷题工具</title>
+	<style type="text/css">
+	textarea {
+		resize: none;
+		display: block;
+	}
+	</style>
+	<link rel="stylesheet" type="text/css" href="/lib/third_parties/stylesheets/buttons.css">
+	<script type="text/javascript">
+	function _append(objName, appendText = '') {
+		var cur = document.getElementById(objName).value;
+		document.getElementById(objName).value = cur + appendText;
+	}
+	window.onload = function() {
+		document.getElementById('submit').onclick = function() {
+			var str = document.getElementById('input').value;
+			if (str == '') {
+				alert('您没有输入任何东西');
+				return;
+			}
+			var a = new Array();
+			a = str.split("\n");
+			document.getElementById('output').value = 'javascript: function text(num, text) {document.getElementsByName("q" + String(num))[0].value = text;}function check(num, option) {var f_num = num,f_option = String.fromCharCode(option.toUpperCase().charCodeAt() - 16);var questions = document.getElementsByClassName("jqRadio");var f_mark = "q" + f_num + "_" + f_option;document.getElementById(f_mark).checked = true;for (var i = 0; i < questions.length; i++) {if (questions[i]["rel"] == f_mark)questions[i].className = "jqRadio jqChecked";}}function _go(display) {if (display == 0) {document.getElementById("submit_button").click();return;}var original_date = new Date();var date = new Date(original_date.getTime() - 1000 * (display-0.58));var y = date.getYear() + 1900;var mon = date.getMonth() + 1;var d = date.getDate();var h = date.getHours();var min = date.getMinutes();min = min < 10 ? "0" + String(min) : min;var s = date.getSeconds();s = s < 10 ? "0" + String(s) : s;starttime = y + "/" + mon + "/" + d + " " + h + ":" + min + ":" + s;document.getElementById("submit_button").click();}';
+			var time = 0;
+			for (var i = 0; i < a.length; i++) {
+				if (a[i].substr(0, 1) == '=')
+					_append('output', "text(" + String(i + 1) + ",'" + a[i].substr(1) + "');");
+				else if (a[i].substr(0, 6) == '@time ')
+					time = a[i].substr(6);
+				else
+					_append('output', "check(" + String(i + 1) + ",'" + a[i] + "');");
+			}
+			_append('output', "_go(" + time + ");");
+		}
+		document.getElementById('copy').onclick = function() {
+			var text = document.getElementById("output");
+			text.select();
+			if (text.value) {
+				try {
+					document.execCommand("copy");
+					var tmp = text.value;
+					text.value = "";
+					text.value = tmp; //清空再放置可以取消选中文本
+					text.blur();
+					alert("复制成功！");
+				} catch (err) {
+					alert("您的浏览器似乎并不支持自动复制！请手动复制。");
+				}
+			} else alert("貌似并没有什么可以复制的东西。");
+		}
+	}
+	</script>
+</head>
+
+<body style="background-color:#c4c4d8">
+	<center>
+		<style type="text/css">
+		.button-action:hover,
+		.button-action:focus {
+			background-color: #a49ef0;
+			border-color: #a49ef0;
+			color: #EEFF00;
+			box-shadow:gray 0px 0px 20px;
+			transition: box-shadow .5s,color .5s;
+			-webkit-animation: box-shadow .5s,color .5s;
+			-o-animation: box-shadow .5s,color .5s;
+			-ms-animation: box-shadow .5s,color .5s;
+			-moz-animation: box-shadow .5s,color .5s;
+		}
+
+		.button-action,
+		.button-action-flat {
+			background-color: #7B72E9;
+			border-color: #7B72E9;
+		}
+
+		textarea::-webkit-input-placeholder {
+			color: #cccccc;
+		}
+
+		textarea::-moz-placeholder {
+			/* Mozilla Firefox 19+ */
+			color: #cccccc;
+		}
+
+		textarea:-moz-placeholder {
+			/* Mozilla Firefox 4 to 18 */
+			color: #EEEEEE;
+		}
+
+		textarea:-ms-input-placeholder {
+			/* Internet Explorer 10-11 */
+			color: #cccccc;
+		}
+
+		textarea {
+			color: #ffffff;
+			background-color: #7B72E9;
+			cursor:url('https://www.easyicon.net/api/resizeApi.php?id=1074283&size=16'),auto;
+		}
+		body{
+			cursor:url('https://www.easyicon.net/api/resizeApi.php?id=1210696&size=16'),auto;
+		}
+		</style>
+		<table width="100%" style="text-align: center; padding: 0;">
+			<tr>
+				<td style="color: #5950C7">
+					<h1 style="cursor:url('https://www.easyicon.net/api/resizeApi.php?id=1074283&size=16'),auto;">问卷星刷题工具</h1>
+					<font style="cursor:url('https://www.easyicon.net/api/resizeApi.php?id=1074283&size=16'),auto;">复制代码，在问卷星问卷界面粘贴到网址栏执行即可。请注意，执行后会自动提交问卷。</font><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<center>
+						<textarea id='input' rows='30' style="width: 90%;font-size: 15px;" placeholder='一行填写一个答案。若是填空则在答案前面加上 =，设置答卷的用时输入 @time 秒数.&#13;&#10;【例】&#13;&#10;=张三&#13;&#10;A&#13;&#10;B&#13;&#10;D&#13;&#10;D&#13;&#10;C&#13;&#10;=作者研究这个工具是不是为了显摆&#13;&#10;=作者在主观上是为了显摆，是不是，是的&#13;&#10;=那在客观上呢&#13;&#10;=在客观上作者推广工具&#13;&#10;=所以构成了客观上的显摆&#13;&#10;=主客观统一&#13;&#10;=所以作者啊就构成了显摆的既遂&#13;&#10;D&#13;&#10;C&#13;&#10;C&#13;&#10;A&#13;&#10;B&#13;&#10;=这是填空题答案&#13;&#10;@time 1314' autofocus></textarea>
+					</center>
+				</td>
+			</tr>
+			<tr>
+				<td><button id='submit' class='button button-action' style="border: 1px #fffff;width: 90.5%;cursor:url('https://www.easyicon.net/api/resizeApi.php?id=1190796&size=16'),auto;">输出代码</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<center><textarea id='output' rows='10' readonly="readonly" placeholder="这只是个输出框" style="width: 90%"></textarea>
+					</center>
+				</td>
+			</tr>
+			<tr>
+				<td><button id='copy' class='button button-action' style="border: 1px #fffff;width: 90.5%;cursor:url('https://www.easyicon.net/api/resizeApi.php?id=1190796&size=16'),auto;">复制代码</button>
+				</td>
+			</tr>
+		</table>
+	</center>
+</body>
+
+</html>
