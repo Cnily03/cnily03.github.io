@@ -1,4 +1,4 @@
-# MATLAB 实验命令和运行结果
+# MATLAB 实验1 - 命令和运行结果
 
 ## 命令
 
@@ -34,11 +34,11 @@ m=4,syms x;n=m/(x-60)+m*(80-x),y=n*(x-60),[x_max,y_neg]=fminbnd(char(-y),40,80),
 
 |`m`的值|运行结果|`m`的值|运行结果|
 |:---:|:---|:---:|:---|
-|1|<pre data-info="matlab">ans1 = <br>   0.6775 + 2.0228i<br>   0.6775 - 2.0228i<br>  -1.2669 + 0.0000i<br>  -0.0441 + 0.4141i<br>  -0.0441 - 0.4141i</pre>|6|<pre data-info="matlab">ans1 = <br>  -1.0622 + 0.0000i<br>   0.6644 + 0.8675i<br>   0.6644 - 0.8675i<br>  -0.1333 + 0.8779i<br>  -0.1333 - 0.8779i</pre>|
-|2|<pre data-info="matlab">ans1 = <br>   0.5990 + 1.4824i<br>   0.5990 - 1.4824i<br>  -1.1617 + 0.0000i<br>  -0.0182 + 0.5800i<br>  -0.0182 - 0.5800i</pre>|7|<pre data-info="matlab">ans1 = <br>   0.6859 + 0.8250i<br>   0.6859 - 0.8250i<br>  -1.0538 + 0.0000i<br>  -0.1590 + 0.8939i<br>  -0.1590 - 0.8939i</pre>|
-|3|<pre data-info="matlab">ans1 = <br>   0.5785 + 1.2074i<br>   0.5785 - 1.2074i<br>  -1.1157 + 0.0000i<br>  -0.0206 + 0.7068i<br>  -0.0206 - 0.7068i</pre>|8|<pre data-info="matlab">ans1 = <br>   0.7022 + 0.7942i<br>   0.7022 - 0.7942i<br>  -1.0475 + 0.0000i<br>  -0.1784 + 0.9043i<br>  -0.1784 - 0.9043i</pre>|
-|4|<pre data-info="matlab">ans1 = <br>  -1.0900 + 0.0000i<br>   0.6004 + 1.0338i<br>   0.6004 - 1.0338i<br>  -0.0554 + 0.7993i<br>  -0.0554 - 0.7993i</pre>|9|<pre data-info="matlab">ans1 = <br>   0.7147 + 0.7707i<br>   0.7147 - 0.7707i<br>  -1.0424 + 0.0000i<br>  -0.1935 + 0.9115i<br>  -0.1935 - 0.9115i</pre>|
-|5|<pre data-info="matlab">ans1 = <br>  -1.0735 + 0.0000i<br>   0.6355 + 0.9307i<br>   0.6355 - 0.9307i<br>  -0.0987 + 0.8507i<br>  -0.0987 - 0.8507i</pre>|10|<pre data-info="matlab">ans1 = <br>   0.7246 + 0.7522i<br>   0.7246 - 0.7522i<br>  -1.0384 + 0.0000i<br>  -0.2054 + 0.9168i<br>  -0.2054 - 0.9168i</pre>|
+|1|<pre data-info="matlab" class="language-matlab">ans1 = <br>   0.6775 + 2.0228i<br>   0.6775 - 2.0228i<br>  -1.2669 + 0.0000i<br>  -0.0441 + 0.4141i<br>  -0.0441 - 0.4141i</pre>|6|<pre data-info="matlab" class="language-matlab">ans1 = <br>  -1.0622 + 0.0000i<br>   0.6644 + 0.8675i<br>   0.6644 - 0.8675i<br>  -0.1333 + 0.8779i<br>  -0.1333 - 0.8779i</pre>|
+|2|<pre data-info="matlab" class="language-matlab">ans1 = <br>   0.5990 + 1.4824i<br>   0.5990 - 1.4824i<br>  -1.1617 + 0.0000i<br>  -0.0182 + 0.5800i<br>  -0.0182 - 0.5800i</pre>|7|<pre data-info="matlab" class="language-matlab">ans1 = <br>   0.6859 + 0.8250i<br>   0.6859 - 0.8250i<br>  -1.0538 + 0.0000i<br>  -0.1590 + 0.8939i<br>  -0.1590 - 0.8939i</pre>|
+|3|<pre data-info="matlab" class="language-matlab">ans1 = <br>   0.5785 + 1.2074i<br>   0.5785 - 1.2074i<br>  -1.1157 + 0.0000i<br>  -0.0206 + 0.7068i<br>  -0.0206 - 0.7068i</pre>|8|<pre data-info="matlab" class="language-matlab">ans1 = <br>   0.7022 + 0.7942i<br>   0.7022 - 0.7942i<br>  -1.0475 + 0.0000i<br>  -0.1784 + 0.9043i<br>  -0.1784 - 0.9043i</pre>|
+|4|<pre data-info="matlab" class="language-matlab">ans1 = <br>  -1.0900 + 0.0000i<br>   0.6004 + 1.0338i<br>   0.6004 - 1.0338i<br>  -0.0554 + 0.7993i<br>  -0.0554 - 0.7993i</pre>|9|<pre data-info="matlab" class="language-matlab">ans1 = <br>   0.7147 + 0.7707i<br>   0.7147 - 0.7707i<br>  -1.0424 + 0.0000i<br>  -0.1935 + 0.9115i<br>  -0.1935 - 0.9115i</pre>|
+|5|<pre data-info="matlab" class="language-matlab">ans1 = <br>  -1.0735 + 0.0000i<br>   0.6355 + 0.9307i<br>   0.6355 - 0.9307i<br>  -0.0987 + 0.8507i<br>  -0.0987 - 0.8507i</pre>|10|<pre data-info="matlab" class="language-matlab">ans1 = <br>   0.7246 + 0.7522i<br>   0.7246 - 0.7522i<br>  -1.0384 + 0.0000i<br>  -0.2054 + 0.9168i<br>  -0.2054 - 0.9168i</pre>|
 
 **第二题**
 
