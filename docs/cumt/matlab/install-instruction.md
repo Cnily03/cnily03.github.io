@@ -4,9 +4,9 @@
 
 访问网站 cn.mathworks.com/login 注册一个账号（点击 `立即创建一个`）
 
-![注册](image/matlab-install/matlab-email.png)
+![注册](image/install-instruction/matlab-email.png)
 
-![创建 MathWorks 账户](image/matlab-install/matlab-create.png)
+![创建 MathWorks 账户](image/install-instruction/matlab-create.png)
 
 其中**电子邮件地址**填写你的**矿大邮箱地址**，默认格式为 `你的学号@cumt.edu.cn`（必须为矿大邮箱，否则就要自己买正版）
 
@@ -24,11 +24,11 @@
 
 查看收件箱，点击 `验证电子邮件`
 
-![验证电子邮件](image/matlab-install/email-confirm-matlab.png)
+![验证电子邮件](image/install-instruction/email-confirm-matlab.png)
 
 进入后如实填写你的个人信息，其中学校信息一栏须填写矿大的英文名 `China University of Mining and Technology`
 
-![大学信息](image/matlab-install/matlab-university.png)
+![大学信息](image/install-instruction/matlab-university.png)
 
 最后接受协议并创建即可
 
@@ -38,7 +38,7 @@
 
 或者直接访问网站 http://gsoft.cumt.edu.cn/7a/ad/c19003a555693/page.htm 根据你的操作系统下载（一般选 `R2022b`）
 
-![MATLAB校园版下载安装说明](image/matlab-install/cumt-matlab.png)
+![MATLAB校园版下载安装说明](image/install-instruction/cumt-matlab.png)
 
 下载完成后找到下载的文件 `R2022b_Windows.iso` 双击打开（不知道下载到哪的在浏览器下载目录里对应的文件旁边点 `打开文件夹`）
 
@@ -46,11 +46,11 @@
 
 选择许可证不要选择密钥（除非你有）
 
-![许可证](image/matlab-install/install-license.png)
+![许可证](image/install-instruction/install-license.png)
 
 选择你的安装目录，然后遇到以下界面选择产品
 
-![选择产品](image/matlab-install/install-product.png)
+![选择产品](image/install-instruction/install-product.png)
 
 根据需求选择产品（可见官网说明 <https://ww2.mathworks.cn/help>），其中 `MATLAB` 为必选，若磁盘空间较大，建议选上 `Simulink`
 
